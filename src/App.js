@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,9 +10,10 @@ import Register from "./components/register.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
-
-import EventBus from "./common/EventBus";
 import AddPost from "./components/add-post.component";
+
+// import AuthVerify from "./common/auth-verify";
+import EventBus from "./common/EventBus";
 
 class App extends Component {
   constructor(props) {
@@ -70,6 +70,7 @@ class App extends Component {
                 Post
               </Link>
             </li>
+
             {currentUser && (
               <li className="nav-item">
                 <Link to={"/user"} className="nav-link">
@@ -125,41 +126,6 @@ class App extends Component {
       </div>
     );
   }
-=======
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./scenes/homePage/index.jsx";
-import LoginPage from "./components/auth/Login.js";
-import ProfilePage from "./scenes/profilePage/index.jsx";
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-import { themeSettings } from "./theme";
-
-function App() {
-  const mode = useSelector((state) => state.mode);
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
-  return (
-    <div className="app">
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route
-            path="/home"
-            element={ <HomePage />}
-          />
-          <Route
-            path="/profile/:userId"
-            element={ <ProfilePage />}
-          />
-        </Routes>
-      </ThemeProvider>
-    </BrowserRouter>
-  </div>
-  );
->>>>>>> c35049d3125fa087d6c9965b4b5b28de547b6b8f
 }
 
 export default App;
